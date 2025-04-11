@@ -129,14 +129,12 @@ class Sudoku {
         void hint(){
             int row, col, num;
             if (findHint(row, col, num)) {
-                x=35,y=1;
+                x=40,y=1;
                 system("cls");
                 gotoxy(x,y);
                 cout << "Hint: Placed " << num<< " at row " << row + 1 << ", column " << col + 1 << ".\n";
                 placeNumber(row, col, num);
-                gotoxy(x,++y);
-                cout << "Hint applied to the grid.\n";
-                displayGrid(35,3);
+                displayGrid(45,3);
             } 
             else 
                 cout << "\nNo hint available — the puzzle may be complete or unsolvable.\n";
@@ -177,7 +175,7 @@ class Sudoku {
             int row, col, num, n;
             char choice;
             do {
-                x=35,y=1;
+                x=40,y=1;
                 system("cls");
                 gotoxy(x,++y);
                 cout << "Enter number of known data (between 0 and 81): ";
@@ -260,7 +258,7 @@ void displayMenu() {
 }
 
 int main() {
-    int x=35,y=20;
+    int x=45,y=20;
     Sudoku s;
     char c;
     posx=&x;
@@ -278,21 +276,21 @@ int main() {
             case '3':
                 if (s.solve()) {
                     system("cls");
-                    gotoxy(35,1);
+                    gotoxy(43,1);
                     cout << "Sudoku solved successfully!";
-                    s.displayGrid(35,3);
+                    s.displayGrid(45,3);
                 } 
                 else 
                 cout << "\nNo solution exists for this Sudoku puzzle.\n";
                 break;
             case '4':
-                s.displayGrid(35,1);
+                s.displayGrid(50,1);
                 break;
             case '5':
             	system("cls");
                 gotoxy(x,4);
 				dash();
-				gotoxy(45,8);
+				gotoxy(40,8);
 				printf("Thank you for using the program.");
 				gotoxy(x,10);
 				dash();
